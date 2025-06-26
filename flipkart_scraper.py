@@ -103,6 +103,28 @@ class DatabaseManager:
             logger.error(f"Error getting product count: {e}")
             return 0
 
+    def fetch_all_products_sorted(self) -> list:
+        """Fetch all products sorted by id ASC (insertion order)."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT * FROM product_info ORDER BY id ASC")
+                return cursor.fetchall()
+        except sqlite3.Error as e:
+            logger.error(f"Error fetching sorted products: {e}")
+            return []
+    
+    def clear_products(self):
+        """Delete all products from the product_info table."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute("DELETE FROM product_info")
+                conn.commit()
+                logger.info("All products deleted from database.")
+        except sqlite3.Error as e:
+            logger.error(f"Error clearing products: {e}")
+
 
 class FlipkartScraper:
     """Main scraper class for Flipkart product data extraction."""
@@ -283,6 +305,20 @@ def main():
     print("Flipkart Product Scraper")
     print("=" * 50)
     
+    # Check if DB exists and has data
+    db_path = "flipkart_products.db"
+    db_exists = os.path.exists(db_path)
+    db_manager = DatabaseManager(db_path)
+    has_data = db_exists and db_manager.get_product_count() > 0
+    if has_data:
+        choice = input("Database already has scraped data.\nKeep old data or insert fresh new data? (k/n, default: k): ").strip().lower()
+        if choice == 'n':
+            db_manager.clear_products()
+            print("Old data cleared. New data will be inserted.")
+        else:
+            print("Old data will be kept. New data will be appended.")
+    else:
+        print("No existing database found. A new database will be created.")
     # Get user input
     keyword = input("Enter search keyword (default: smartphone): ").strip()
     if not keyword:
