@@ -1,0 +1,16 @@
+2025-06-26 09:36:21,185 - INFO - Database initialized successfully
+2025-06-26 09:36:27,034 - INFO - WebDriver setup completed
+2025-06-26 09:36:27,034 - INFO - Starting scraper for keyword: smartphone
+2025-06-26 09:36:27,034 - INFO - Scraping page 1 for keyword: smartphone
+2025-06-26 09:36:30,159 - INFO - Found 24 products on page 1
+2025-06-26 09:36:32,160 - INFO - Scraping page 2 for keyword: smartphone
+2025-06-26 09:36:33,493 - INFO - Found 24 products on page 2
+2025-06-26 09:36:35,494 - INFO - Scraping page 3 for keyword: smartphone
+2025-06-26 09:36:37,005 - INFO - Found 24 products on page 3
+2025-06-26 09:36:39,088 - INFO - Successfully inserted 72 products
+2025-06-26 09:36:39,093 - INFO - Scraping completed. Results: {'scraped': 72, 'saved': 72, 'total_in_db': 72}
+2025-06-26 09:36:41,717 - INFO - WebDriver closed
+2025-06-26 09:36:45,729 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020B5CD21310>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/b53e373859be2c3632c7a5722390dbcb
+2025-06-26 09:36:49,735 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020B5CD21E90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/b53e373859be2c3632c7a5722390dbcb
+2025-06-26 09:36:53,742 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020B5CD224D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/b53e373859be2c3632c7a5722390dbcb
+2025-06-26 09:37:01,753 - INFO - WebDriver closed
