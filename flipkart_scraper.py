@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 import requests
 from urllib.parse import urljoin
 import os
+from config import Config
 
 # Configure logging
 logging.basicConfig(
@@ -30,7 +31,7 @@ logger = logging.getLogger(__name__)
 class DatabaseManager:
     """Handles database operations for product data storage."""
     
-    def __init__(self, db_path: str = "flipkart_products.db"):
+    def __init__(self, db_path: str = Config.DATABASE_PATH):
         self.db_path = db_path
         self.init_database()
     
@@ -130,7 +131,7 @@ class FlipkartScraper:
     """Main scraper class for Flipkart product data extraction."""
     
     def __init__(self, headless: bool = True):
-        self.base_url = "https://www.flipkart.com"
+        self.base_url = Config.BASE_URL
         self.headless = headless
         self.driver = None
         self.db_manager = DatabaseManager()
@@ -142,11 +143,9 @@ class FlipkartScraper:
             chrome_options = Options()
             if self.headless:
                 chrome_options.add_argument("--headless")
-            chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--disable-dev-shm-usage")
-            chrome_options.add_argument("--disable-gpu")
-            chrome_options.add_argument("--window-size=1920,1080")
-            chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+            # Add options from Config.CHROME_OPTIONS
+            for opt in Config.CHROME_OPTIONS:
+                chrome_options.add_argument(opt)
             
             # Initialize driver
             self.driver = webdriver.Chrome(options=chrome_options)
@@ -178,7 +177,7 @@ class FlipkartScraper:
                 break
             
             # Add delay between requests
-            time.sleep(2)
+            time.sleep(Config.REQUEST_DELAY)
         
         return all_products
     
@@ -306,7 +305,7 @@ def main():
     print("=" * 50)
     
     # Check if DB exists and has data
-    db_path = "flipkart_products.db"
+    db_path = Config.DATABASE_PATH
     db_exists = os.path.exists(db_path)
     db_manager = DatabaseManager(db_path)
     has_data = db_exists and db_manager.get_product_count() > 0
@@ -326,14 +325,17 @@ def main():
     
     max_pages_input = input("Enter max pages to scrape (default: 3): ").strip()
     try:
-        max_pages = int(max_pages_input) if max_pages_input else 3
-        max_pages = min(max_pages, 3)  # Limit to 3 pages as per requirement
+        max_pages = int(max_pages_input) if max_pages_input else Config.MAX_PAGES
+        max_pages = min(max_pages, Config.MAX_PAGES)  # Limit to 3 pages as per requirement
     except ValueError:
-        max_pages = 3
+        max_pages = Config.MAX_PAGES
     
-    headless_input = input("Run in headless mode? (y/n, default: y): ").strip().lower()
-    headless = headless_input != 'n'
-    
+    headless_input = input(f"Run in headless mode? (y/n, default: {'y' if Config.HEADLESS_MODE else 'n'}): ").strip().lower()
+    if headless_input == '':
+        headless = Config.HEADLESS_MODE
+    else:
+        headless = headless_input != 'n'
+
     print(f"\nConfiguration:")
     print(f"Keyword: {keyword}")
     print(f"Max pages: {max_pages}")
@@ -350,7 +352,7 @@ def main():
         print(f"Products scraped: {results['scraped']}")
         print(f"Products saved: {results['saved']}")
         print(f"Total products in database: {results['total_in_db']}")
-        print(f"\nDatabase file: flipkart_products.db")
+        print(f"\nDatabase file: {db_path}")
         print(f"Log file: scraper.log")
         
     except KeyboardInterrupt:

@@ -1,18 +1,17 @@
-2025-06-26 10:11:25,094 - INFO - Database initialized successfully
-2025-06-26 10:12:07,302 - INFO - Database initialized successfully
-2025-06-26 10:12:14,958 - INFO - Database initialized successfully
-2025-06-26 10:12:16,972 - INFO - WebDriver setup completed
-2025-06-26 10:12:16,973 - INFO - Starting scraper for keyword: smartphone
-2025-06-26 10:12:16,973 - INFO - Scraping page 1 for keyword: smartphone
-2025-06-26 10:12:21,179 - INFO - Found 24 products on page 1
-2025-06-26 10:12:23,181 - INFO - Scraping page 2 for keyword: smartphone
-2025-06-26 10:12:25,660 - INFO - Found 24 products on page 2
-2025-06-26 10:12:27,662 - INFO - Scraping page 3 for keyword: smartphone
-2025-06-26 10:12:29,372 - INFO - Found 24 products on page 3
-2025-06-26 10:12:31,476 - INFO - Successfully inserted 72 products
-2025-06-26 10:12:31,479 - INFO - Scraping completed. Results: {'scraped': 72, 'saved': 72, 'total_in_db': 72}
-2025-06-26 10:12:34,101 - INFO - WebDriver closed
-2025-06-26 10:12:38,108 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018A301155D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/9037b47621fcd1666e6561fde336ed79
-2025-06-26 10:12:42,117 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018A30114090>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/9037b47621fcd1666e6561fde336ed79
-2025-06-26 10:12:46,124 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018A30110490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/9037b47621fcd1666e6561fde336ed79
-2025-06-26 10:12:54,137 - INFO - WebDriver closed
+2025-06-26 10:44:05,511 - INFO - Database initialized successfully
+2025-06-26 10:44:16,461 - INFO - Database initialized successfully
+2025-06-26 10:44:18,525 - INFO - WebDriver setup completed
+2025-06-26 10:44:18,525 - INFO - Starting scraper for keyword: smartphone
+2025-06-26 10:44:18,526 - INFO - Scraping page 1 for keyword: smartphone
+2025-06-26 10:44:21,391 - INFO - Found 24 products on page 1
+2025-06-26 10:44:23,393 - INFO - Scraping page 2 for keyword: smartphone
+2025-06-26 10:44:24,779 - INFO - Found 24 products on page 2
+2025-06-26 10:44:26,780 - INFO - Scraping page 3 for keyword: smartphone
+2025-06-26 10:44:28,269 - INFO - Found 24 products on page 3
+2025-06-26 10:44:30,308 - INFO - Successfully inserted 72 products
+2025-06-26 10:44:30,313 - INFO - Scraping completed. Results: {'scraped': 72, 'saved': 72, 'total_in_db': 72}
+2025-06-26 10:44:32,953 - INFO - WebDriver closed
+2025-06-26 10:44:36,963 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002D112BF4AD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/01325c9d0c4e6cdabd1eb86671046014
+2025-06-26 10:44:40,969 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002D112BF5B90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/01325c9d0c4e6cdabd1eb86671046014
+2025-06-26 10:44:44,976 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002D112BF61D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/01325c9d0c4e6cdabd1eb86671046014
+2025-06-26 10:44:52,986 - INFO - WebDriver closed
