@@ -7,6 +7,8 @@ A robust Python-based web scraper for extracting product information from Flipka
 - **Multi-page Scraping**: Scrapes up to 3 pages of search results
 - **Robust Data Extraction**: Extracts product title, image URL, and price
 - **Database Storage**: Stores data in SQLite database with proper schema
+- **Old/New Data Option**: Choose to keep old scraped data or insert fresh new data when running the scraper if the database already exists
+- **CSV Export Option**: After viewing the latest 10 products in the database viewer, you can choose to export all products to a CSV file
 - **Error Handling**: Comprehensive logging and error handling
 - **Clean Architecture**: Follows OOP principles with separate classes for different responsibilities
 - **Configurable**: Supports headless/GUI mode, customizable parameters
