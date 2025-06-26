@@ -31,7 +31,7 @@ flipkart-scraper/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/george07-t/Flipcart_Scraper.git
    cd flipkart-scraper
    ```
 
