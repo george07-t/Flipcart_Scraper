@@ -116,16 +116,16 @@ class DatabaseManager:
             return []
     
     def clear_products(self):
-        """Delete all products from the product_info table."""
+        """Delete all products from the product_info table and reset autoincrement id."""
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
                 cursor.execute("DELETE FROM product_info")
+                cursor.execute("DELETE FROM sqlite_sequence WHERE name='product_info'")
                 conn.commit()
-                logger.info("All products deleted from database.")
+                logger.info("All products deleted and autoincrement id reset.")
         except sqlite3.Error as e:
             logger.error(f"Error clearing products: {e}")
-
 
 class FlipkartScraper:
     """Main scraper class for Flipkart product data extraction."""
